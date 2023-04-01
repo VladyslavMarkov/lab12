@@ -12,7 +12,7 @@ V_LAGS = valgrind
                              #(basic)#
                              
 main_all: clean prep compile
-	./dist/main.bin
+	cat ./assets/text.txt | ./dist/main.bin
 
 test_all: clean prep test.bin test
 
@@ -65,9 +65,9 @@ test: dist
                              #(code-coverage)#
 
 leak-check_main1:clean prep main.bin
-	$(V_LAGS) $(V_FLAGS)  --log-file=dist/valgrind_main.log  dist/main.bin
+	$(V_LAGS) $(V_FLAGS)  --log-file=dist/valgrind_main.log  cat ./assets/text.txt | ./dist/main.bin
 leak-check_main2: 
-	$(V_LAGS) $(V_FLAGS) --xml-file=dist/valgrind_main.xml  --xml=yes dist/main.bin 
+	$(V_LAGS) $(V_FLAGS) --xml-file=dist/valgrind_main.xml  --xml=yes cat ./assets/text.txt | ./dist/main.bin
 
 leak-check_test2:
 	$(V_LAGS)  $(V_FLAGS) --xml-file=dist/valgrind_test.xml  --xml=yes dist/test.bin

@@ -34,7 +34,7 @@
 
 */
 
-float **mul_matrix(float **matrix1, float **matrix2, float **result_mul_matrix, unsigned int links1, unsigned int colums2, unsigned int links2)
+void mul_matrix(float **matrix1, float **matrix2, float **result_mul_matrix, unsigned int links1, unsigned int colums2, unsigned int links2)
 {
 	for (unsigned int i = 0; i < links1; i++) {
 		for (unsigned int j = 0; j < colums2; j++) {
@@ -47,5 +47,4 @@ float **mul_matrix(float **matrix1, float **matrix2, float **result_mul_matrix, 
 		}
 	}
 
-	return result_mul_matrix;
 }
